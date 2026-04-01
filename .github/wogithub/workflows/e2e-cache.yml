@@ -1,0 +1,10 @@
+steps:
+  - uses: actions/checkout@v6   # Always run this first!
+  - name: Clean global cache
+    run: npm cache clean --force
+  - name: Setup Node
+    uses: ./
+    with:
+      node-version: ${{ matrix.node-version }}
+      cache: 'npm'
+  # ... the rest of your steps ...
